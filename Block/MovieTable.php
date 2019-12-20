@@ -2,7 +2,7 @@
 
 namespace Magenest\Study\Block;
 use Magenest\Study\Model\ResourceModel\Movie\CollectionFactory;
-class Landingspage extends \Magento\Framework\View\Element\Template {
+class MovieTable extends \Magento\Framework\View\Element\Template {
 
     protected $_movieFactory;
     protected $_resourceConnection;

@@ -7,8 +7,8 @@
     </head>
     <body>
         <referenceContainer name="content">
-            <block class="Magenest\Study\Block\Landingspage"
-                   name="landingsblock" template="Magenest_Study::landingspage.phtml" cacheable="false" />
+            <block class="Magenest\Study\Block\MovieTable"
+                   name="landingsblock" template="Magenest_Study::movietable.phtml" cacheable="false" />
         </referenceContainer>
     </body>
 </page>
