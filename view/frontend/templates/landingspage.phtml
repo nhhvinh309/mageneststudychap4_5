@@ -1,0 +1,25 @@
+<?php
+/** @var \Magenest\Study\Block\Landingspage $block */
+$arrayData = $block->getMovie();
+echo "<table>";
+echo "<tr>
+        <th>Movie</th>
+        <th>Director</th>
+        <th>Actor</th>
+        <th>Description</th>
+        <th>Rating</th>
+      </tr>";
+foreach ($arrayData as $row) {
+    echo
+        "<tr>
+          <td>" . $row['name'] . "</td>
+          <td>" . $row['director_name'] . "</td>
+          <td>" . $row['actor_name'] . "</td>
+          <td>" . $row['description'] . "</td>
+          <td>" . $row['rating'] . "</td>
+         </tr>";
+}
+echo "<table>";
+?>
+<h2>Hello World</h2>
+
