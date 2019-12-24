@@ -5,5 +5,53 @@
         <tab id="magenest_study" translate="label" sortOrder="500">
             <label>Magenest</label>
         </tab>
+        <section id="study" translate="label" type="text"
+                 sortOrder="100" showInDefault="1" showInWebsite="1"
+                 showInStore="1">
+            <label>Movie</label>
+            <tab>magenest_study</tab>
+            <resource>Magenest_Study::config_movie</resource>
+            <group id="moviepage" translate="label" type="text"
+                   sortOrder="1" showInDefault="1" showInWebsite="1"
+                   showInStore="1">
+                <label>Movie page settings</label>
+                <field id="header_title" translate="label"
+                       type="text" sortOrder="1" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Text field</label>
+                </field>
+                <field id="yesno" translate="label"
+                       type="select" sortOrder="20" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label><![CDATA[Yes/No_Field_<strong style="color:red">abcd</strong>]]></label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="list_mode" translate="label" type="select" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Custom Select</label>
+                    <source_model>Magenest\Study\Model\Config\Source\ListMode</source_model>
+                </field>
+                <field id="rowsofmovies" translate="label"
+                       type="text" sortOrder="40" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Number of Movies</label>
+                    <frontend_model>Magenest\Study\Model\Config\Source\MovieRows</frontend_model>
+                </field>
+                <field id="rowsofactors" translate="label"
+                       type="text" sortOrder="50" showInDefault="1"
+                       showInWebsite="1" showInStore="1">
+                    <label>Number of Actors</label>
+                    <depends>
+                        <field id="list_mode">1</field>
+                    </depends>
+                    <frontend_model>Magenest\Study\Model\Config\Source\ActorRows</frontend_model>
+                </field>
+
+                <field id="button" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <button_label>Button</button_label>
+                    <frontend_model>Magenest\Study\Block\System\Config\Button</frontend_model>
+                </field>
+
+            </group>
+        </section>
     </system>
 </config>

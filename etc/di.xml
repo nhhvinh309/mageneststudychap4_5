@@ -1,0 +1,41 @@
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="study_magenestmovie_listing_data_source" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestMovie\Grid\Collection</item>
+                <item name="study_magenestactor_listing_data_source" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestActor\Collection</item>
+                <item name="study_magenestdirector_listing_data_source" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestDirector\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magenest\Study\Model\ResourceModel\MagenestMovie\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_movie</argument>
+            <argument name="eventPrefix" xsi:type="string">magenest_movie__grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">magenest_movie_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestMovie</argument>
+        </arguments>
+    </type>
+
+<!--    <virtualType name="Magenest\Study\Model\ResourceModel\MagenestMovie\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">-->
+<!--        <arguments>-->
+<!--            <argument name="mainTable" xsi:type="string">magenest_movie</argument>-->
+<!--            <argument name="resourceModel" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestMovie</argument>-->
+<!--        </arguments>-->
+<!--    </virtualType>-->
+
+    <virtualType name="Magenest\Study\Model\ResourceModel\MagenestActor\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_actor</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestActor</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Magenest\Study\Model\ResourceModel\MagenestDirector\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">magenest_director</argument>
+            <argument name="resourceModel" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestDirector</argument>
+        </arguments>
+    </virtualType>
+</config>

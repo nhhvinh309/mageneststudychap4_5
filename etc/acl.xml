@@ -8,8 +8,8 @@
                     <resource id="Magento_Backend::stores_settings">
                         <resource id="Magento_Config::config">
                             <resource
-                                    id="Packt_HelloWorld::config_helloworld"
-                                    title="HelloWorld Section" />
+                                    id="Magenest_Study::config_movie"
+                                    title="Magenest Section" />
                         </resource>
                     </resource>
                 </resource>
