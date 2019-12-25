@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation=
+        "urn:magento:framework:Event/etc/events.xsd">
+    <event name="save_a_movie">
+        <observer name="set_rating_to_0"
+                  instance="Magenest\Study\Observer\SaveMovie" />
+    </event>
+    <event name="adminhtml_customer_save_after">
+        <observer name="change_firstname_to_magenest"
+                  instance="Magenest\Study\Observer\ChangeCustomerFirstName" />
+    </event>
+    <event name="admin_system_config_changed_section_study">
+        <observer name="change_text_field"
+                  instance="Magenest\Study\Observer\ChangeTextField" />
+    </event>
+
+</config>

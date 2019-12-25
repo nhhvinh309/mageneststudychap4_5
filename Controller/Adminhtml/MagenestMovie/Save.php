@@ -1,17 +1,22 @@
 <?php
 namespace Magenest\Study\Controller\Adminhtml\MagenestMovie;
+use Magento\Framework\EntityManager\EventManager;
+
 class Save extends \Magento\Framework\App\Action\Action
 {
     protected $resultPageFactory;
     protected $movieFactory;
     protected $movie;
+    protected $_eventManager;
     public function __construct(
         \Magento\Framework\App\Action\Context $context,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory,
         \Magenest\Study\Model\MagenestMovieFactory $movieFactory,
-        \Magenest\Study\Model\MagenestMovie $movie
+        \Magenest\Study\Model\MagenestMovie $movie,
+        EventManager $eventManager
     )
     {
+        $this->_eventManager = $eventManager;
         $this->resultPageFactory = $resultPageFactory;
         $this->movieFactory = $movieFactory;
         $this->movie = $movie;
@@ -22,13 +27,17 @@ class Save extends \Magento\Framework\App\Action\Action
         $resultRedirect = $this->resultRedirectFactory->create();
         $request = $this->getRequest()->getParams();
         $movie = $this->movieFactory->create();
+
+
         if (!empty($request['movie_id'])) {
             $movie->setid($request['movie_id']);
         }
         try{
+
             $name = $request['name'];
             $description = $request['description'];
             $rating = $request['rating'];
+            $this->_eventManager->dispatch('save_a_movie', ['rating' => $rating]);
             $director_id = $request['director_id'];
             $movie->setname($name);
             $movie->setdescription($description);
