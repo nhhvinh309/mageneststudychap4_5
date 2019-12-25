@@ -17,14 +17,7 @@
             <argument name="resourceModel" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestMovie</argument>
         </arguments>
     </type>
-
-<!--    <virtualType name="Magenest\Study\Model\ResourceModel\MagenestMovie\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">-->
-<!--        <arguments>-->
-<!--            <argument name="mainTable" xsi:type="string">magenest_movie</argument>-->
-<!--            <argument name="resourceModel" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestMovie</argument>-->
-<!--        </arguments>-->
-<!--    </virtualType>-->
-
+    
     <virtualType name="Magenest\Study\Model\ResourceModel\MagenestActor\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
         <arguments>
             <argument name="mainTable" xsi:type="string">magenest_actor</argument>
@@ -38,4 +31,8 @@
             <argument name="resourceModel" xsi:type="string">Magenest\Study\Model\ResourceModel\MagenestDirector</argument>
         </arguments>
     </virtualType>
+
+    <type name="Magento\Checkout\Controller\Cart\Add">
+        <plugin name="Magenest_Study::add_child_to_cart" type="Magenest\Study\Plugin\Checkout\Controller\Cart\Add" sortOrder="1"/>
+    </type>
 </config>
