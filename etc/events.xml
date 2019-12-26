@@ -5,7 +5,7 @@
         <observer name="set_rating_to_0"
                   instance="Magenest\Study\Observer\SaveMovie" />
     </event>
-    <event name="adminhtml_customer_save_after">
+    <event name="adminhtml_customer_prepare_save">
         <observer name="change_firstname_to_magenest"
                   instance="Magenest\Study\Observer\ChangeCustomerFirstName" />
     </event>

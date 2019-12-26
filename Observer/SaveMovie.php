@@ -10,8 +10,7 @@ class SaveMovie implements ObserverInterface
      */
     public function execute(Observer $observer)
     {
-        $rating = $observer->getData('rating');
-        $rating = 0;
-        return $rating;
+        $observer->getData('movie')->setRating(0);
+        return $this;
     }
 }

@@ -37,12 +37,12 @@ class Save extends \Magento\Framework\App\Action\Action
             $name = $request['name'];
             $description = $request['description'];
             $rating = $request['rating'];
-            $this->_eventManager->dispatch('save_a_movie', ['rating' => $rating]);
             $director_id = $request['director_id'];
             $movie->setname($name);
             $movie->setdescription($description);
             $movie->setrating($rating);
             $movie->setdirector_id($director_id);
+            $this->_eventManager->dispatch('save_a_movie', ['movie' => $movie]);
             $movie->save();
             $this->messageManager->addSuccessMessage(__('Record saved successfully'));
             $this->resultPageFactory->create();

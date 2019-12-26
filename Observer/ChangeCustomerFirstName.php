@@ -20,6 +20,5 @@ class ChangeCustomerFirstName implements ObserverInterface
     {
         $customer = $observer->getEvent()->getCustomer();
         $customer->setFirstName(self::CUSTOMER_FIRST_NAME);
-        $this->_customerRepositoryInterface->save($customer);;
     }
 }
