@@ -1,0 +1,11 @@
+<?php
+    $customerDetails = $block->getCustomerDetails();
+?>
+<p>
+    <?= $block->escapeHtml(__('Username: %1', $customerDetails->getName())) ?><br>
+    <?= $block->escapeHtml(__('Email: %1', $customerDetails->getEmail())) ?><br>
+    <?= $block->escapeHtml(__('Phone: %1', $customerDetails->getDefaultBillingAddress()->getTelephone())) ?><br>
+    <?= $block->escapeHtml(__('Phone: %1', $customerDetails->getName())) ?><br>
+</p>
+<img src="<?php echo $block->getCustomerAvatar(); ?>" width="150px" height="150px" alt="avatar" />
+
