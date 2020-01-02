@@ -5,7 +5,7 @@
 <div class="alert-modal-content" style="visibility: hidden">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
 </div>
-<div id="popup-modal" style="background-color: #0bff8b; padding: 150px">
+<div id="popup-modal" style="background-color: #0bff8b; padding: 150px; visibility: hidden">
     <form class="modal-content animate" action="/action_page.php" method="post">
         <div class="container" style="padding: 75px; z-index: 1; background-color: white">
             <input type="text" style="margin: 10px 0px" placeholder="Enter Username" name="uname" required>
@@ -58,6 +58,7 @@
                         title: 'Login Modal',
                     };
                     modal(options, $('#popup-modal'));
+                    $('#popup-modal').css('visibility', 'visible');
                     $('#popup-modal').modal('openModal');
                 })
             });
