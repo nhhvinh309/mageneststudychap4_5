@@ -1,13 +1,9 @@
 <?php
-    $number = $block->getNumber();
-    $numberMagentoModule = $block->getMagentoModules();
-    $numberVendorModule = $block->getVendorModules();
-?>
+    $numberModules = $block->getModulesNumber();
 
-<h2>this is template</h2>
-<h2>this is Number</h2>
-<?php
-    echo "Numbers of module installed in Magento:" .$numberMagentoModule;
-    echo "Numbers of module installed in Magneto but belonged to another Vendor (not Magento):" .$numberVendorModule;
 ?>
-
+<legend><h1 >module</h1></legend>
+<div>
+    <p>Numbers of module installed in Magento :<?php print_r($numberModules[0]) ?></p>
+    <p>Numbers of module installed not Magento :<?php print_r($numberModules[1]) ?></p>
+</div>

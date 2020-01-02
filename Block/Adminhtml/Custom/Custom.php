@@ -7,38 +7,53 @@ use Magento\Framework\View\Element\Template;
 class Custom extends \Magento\Framework\View\Element\Template {
 
     protected $fullModuleList;
-    public function __construct(Template\Context $context,
-                                \Magento\Framework\Module\FullModuleList $fullModuleList,
-                                array $data = [])
+    protected $objectManager;
+    public function __construct(Template\Context $context,\Magento\Framework\Module\FullModuleList $fullModuleList
+    )
     {
         $this->fullModuleList = $fullModuleList;
-        parent::__construct($context, $data);
+        $this->objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+        parent::__construct($context);
     }
 
-    public function getMagentoModules()
+    public function getModulesNumber()
     {
         $allModules = $this->fullModuleList->getNames();
-        $countMagentoModules = 0;
+        $listOfModules = [0 => 0, 1 => 0];
         foreach ($allModules as $module)
         {
             if(strpos($module, 'Magento') !== false)
-                $countMagentoModules += 1;
+                $listOfModules[0] += 1;
+            else
+                $listOfModules[1] += 1;
         }
-        return $countMagentoModules;
+        return $listOfModules;
     }
-    public function getVendorModules()
-    {
-        $allModules = $this->fullModuleList->getNames();
-        $count = 0;
-        foreach ($allModules as $module)
-        {
-            if(strpos($module, 'Magento') !== true)
-                $count += 1;
-        }
-        return $count;
-    }
-    public function getNumber(){
 
-        return 777;
+    public function getCustomerNumber()
+    {
+        $customerObj = $this->objectManager->create('Magento\Customer\Model\Customer')->getCollection();
+        return $customerObj->getSize();
     }
+    public function getProductNumber()
+    {
+        $productObj = $this->objectManager->create('Magento\Catalog\Model\Product')->getCollection();
+        return $productObj->getSize();
+    }
+    public function getOrderNumber()
+    {
+        $orderObj = $this->objectManager->create('Magento\Sales\Model\Order')->getCollection();
+        return $orderObj->getSize();
+    }
+    public function getInvoiceNumber()
+    {
+        $invoiceObj = $this->objectManager->create('Magento\Sales\Model\Order\Invoice')->getCollection();
+        return $invoiceObj->getSize();
+    }
+    public function getCreditMemoNumber()
+    {
+        $creditMemoObj = $this->objectManager->create('Magento\Sales\Model\Order\Creditmemo')->getCollection();
+        return $creditMemoObj->getSize();
+    }
+
 }
