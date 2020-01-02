@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Magenest\Study\Block\Adminhtml\Custom\Custom" name="custom_info" as="info" template="Magenest_Study::custom/custom.phtml" cacheable="false">
+
+            </block>
+        </referenceContainer>
+    </body>
+</page>

@@ -35,4 +35,5 @@
     <type name="Magento\Checkout\Controller\Cart\Add">
         <plugin name="Magenest_Study::add_child_to_cart" type="Magenest\Study\Plugin\Checkout\Controller\Cart\Add" sortOrder="1"/>
     </type>
+
 </config>

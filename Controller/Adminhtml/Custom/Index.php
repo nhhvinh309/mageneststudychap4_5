@@ -1,8 +1,7 @@
 <?php
-namespace Magenest\Study\Controller\Adminhtml\Index;
+namespace Magenest\Study\Controller\Adminhtml\Custom;
 use Magento\Backend\App\Action\Context;
 use Magento\Framework\View\Result\PageFactory;
-
 class Index extends \Magento\Backend\App\Action
 {
     protected $resultPageFactory;
@@ -16,7 +15,7 @@ class Index extends \Magento\Backend\App\Action
     public function execute()
     {
         $resultPage = $this->resultPageFactory->create();
-        $resultPage->getConfig()->getTitle()->prepend(__('This is Admin page'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Request Report'));
         return $resultPage;
     }
 }

@@ -1,0 +1,13 @@
+<?php
+    $number = $block->getNumber();
+    $numberMagentoModule = $block->getMagentoModules();
+    $numberVendorModule = $block->getVendorModules();
+?>
+
+<h2>this is template</h2>
+<h2>this is Number</h2>
+<?php
+    echo "Numbers of module installed in Magento:" .$numberMagentoModule;
+    echo "Numbers of module installed in Magneto but belonged to another Vendor (not Magento):" .$numberVendorModule;
+?>
+

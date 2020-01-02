@@ -58,9 +58,6 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="editor" xsi:type="array">
                         <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
                     </item>
                     <item name="label" xsi:type="string" translate="true">Name</item>
                 </item>
@@ -72,24 +69,27 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="editor" xsi:type="array">
                         <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
                     </item>
                     <item name="label" xsi:type="string" translate="true">Description</item>
                 </item>
             </argument>
         </column>
-        <column name="rating">
+<!--        <column name="rating">-->
+<!--            <argument name="data" xsi:type="array">-->
+<!--                <item name="config" xsi:type="array">-->
+<!--                    <item name="filter" xsi:type="string">text</item>-->
+<!--                    <item name="editor" xsi:type="array">-->
+<!--                        <item name="editorType" xsi:type="string">text</item>-->
+<!--                    </item>-->
+<!--                    <item name="label" xsi:type="string" translate="true">Rating</item>-->
+<!--                </item>-->
+<!--            </argument>-->
+<!--        </column>-->
+        <column name="rating_star" class="Magenest\Study\Ui\Component\Listing\Column\RatingStar">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="filter" xsi:type="string">text</item>
-                    <item name="editor" xsi:type="array">
-                        <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
-                    </item>
+                    <item name="visible" xsi:type="boolean">true</item>
+                    <item name="bodyTmpl" xsi:type="string">ui/grid/cells/html</item>
                     <item name="label" xsi:type="string" translate="true">Rating</item>
                 </item>
             </argument>
@@ -100,9 +100,6 @@
                     <item name="filter" xsi:type="string">text</item>
                     <item name="editor" xsi:type="array">
                         <item name="editorType" xsi:type="string">text</item>
-                        <item name="validation" xsi:type="array">
-                            <item name="required-entry" xsi:type="boolean">true</item>
-                        </item>
                     </item>
                     <item name="label" xsi:type="string" translate="true">Director</item>
                 </item>

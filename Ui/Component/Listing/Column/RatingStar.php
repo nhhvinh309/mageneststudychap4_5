@@ -1,11 +1,12 @@
 <?php
+
 namespace Magenest\Study\Ui\Component\Listing\Column;
 
 use Magento\Framework\View\Element\UiComponentFactory;
 use Magento\Framework\View\Element\UiComponent\ContextInterface;
 use Magento\Ui\Component\Listing\Columns\Column;
 
-class DirectorName extends Column
+class RatingStar extends Column
 {
     public function __construct(
         ContextInterface $context,
@@ -21,10 +22,13 @@ class DirectorName extends Column
     {
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as &$items) {
-                // $items['instock'] is column value
-                if ($items['instock'] == 1) {
-                    $items['instock'] = $items['instock'] . 'Custom Value';
-                }
+                    $pixels = $items['rating'] * 10;
+                    $items['rating_star'] = '<div style="float: left; position: relative; width: 80px">
+                                                <div><img style="max-width: 100px;" src="https://image.ibb.co/jpMUXa/stars_blank.png"></div>
+                                                <div style="position: absolute; top: 0; left: 0; overflow: hidden; width: ' . $pixels . 'px">
+                                                    <img style="max-width: 100px;" src="https://image.ibb.co/caxgdF/stars_full.png" alt="">
+                                                </div>
+                                             </div>';
             }
         }
         return $dataSource;

@@ -13,7 +13,7 @@ class UpgradeSchema implements UpgradeSchemaInterface
 
     public function upgrade(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
-        if (version_compare($context->getVersion(), '2.0.0') < 0)
+        if (version_compare($context->getVersion(), '2.0.1') < 0)
         {
             $installer = $setup;
             $installer->startSetup();
@@ -28,7 +28,3 @@ class UpgradeSchema implements UpgradeSchemaInterface
         }
     }
 }
-
-//alter table magenest_movie
-//	add constraint magenest_movie_magenest_director_director_id_fk
-//		foreign key (director_id) references magenest_director (director_id);

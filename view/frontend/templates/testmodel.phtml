@@ -1,0 +1,66 @@
+<h2> Test Model</h2>
+<button id="open-modal" type="button" style="margin:0px 70px">Open Modal</button>
+<button id="magento-login-modal" type="button" style="margin:0px 70px">Open Magento Login Modal</button>
+<button type="button" style="margin:0px 70px">Open Custom Modal</button>
+<div class="alert-modal-content" style="visibility: hidden">
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+</div>
+<div id="popup-modal" style="background-color: #0bff8b; padding: 150px">
+    <form class="modal-content animate" action="/action_page.php" method="post">
+        <div class="container" style="padding: 75px; z-index: 1; background-color: white">
+            <input type="text" style="margin: 10px 0px" placeholder="Enter Username" name="uname" required>
+
+            <input type="password" style="margin: 10px 0px" placeholder="Enter Password" name="psw" required>
+
+            <button type="submit" style="width: 100%; background-color: green ">Login</button>
+        </div>
+    </form>
+</div>
+<script>
+    require(['jquery', 'Magento_Ui/js/modal/alert'], function ($, alert) {
+        $(document).ready(function () {
+            $("#open-modal").click(function () {
+                alert({
+                    title: 'Alert Title',
+                    content: $('.alert-modal-content'),
+                    modalClass: 'alert',
+                    actions: {
+                        always: function () {
+                            // do something when the modal is closed
+                        }
+                    },
+                    buttons: [{
+                        text: $.mage.__('Accept'),
+                        class: 'action primary accept',
+                        click: function () {
+                            this.closeModal(true);
+                        }
+                    }, {
+                        text: $.mage.__('New Action'),
+                        class: 'action',
+                        click: function () {
+                            // New action
+                        }
+                    }]
+                });
+            })
+        });
+    });
+    require(['jquery', 'Magento_Ui/js/modal/modal'],
+        function ($, modal) {
+        'use strict';
+            $(document).ready(function () {
+                $("#magento-login-modal").click(function () {
+                    var options = {
+                        type: 'popup',
+                        responsive: true,
+                        innerScroll: true,
+                        title: 'Login Modal',
+                    };
+                    modal(options, $('#popup-modal'));
+                    $('#popup-modal').modal('openModal');
+                })
+            });
+        }
+    );
+</script>

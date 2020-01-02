@@ -83,6 +83,11 @@
                     <item name="label" xsi:type="string" translate="true">Rating</item>
                     <item name="formElement" xsi:type="string">input</item>
                     <item name="source" xsi:type="string">movie_details</item>
+                    <item name="validation" xsi:type="array">
+                        <item name="greater-than-equals-to" xsi:type="number">0</item>
+                        <item name="less-than-equals-to" xsi:type="number">10</item>
+                        <item name="validate-integer" xsi:type="boolean">true</item>
+                    </item>
                 </item>
             </argument>
         </field>

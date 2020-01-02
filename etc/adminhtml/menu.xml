@@ -4,14 +4,34 @@
     <menu>
         <add id="Magenest_Study::movie" title="Movie" module="Magenest_Study" sortOrder="51"
              resource="Magenest_Study::movie"/>
-        <add id="Magenest_Study::magenestmovie" title="Magenest Movie" module="Magenest_Study" sortOrder="10"
+        <add
+                id="Magenest_Study::movie_section"
+                title="Movie Manager"
+                module="Magenest_Study"
+                sortOrder="50"
+                parent="Magenest_Study::movie"
+                resource="Magenest_Study::movie_section"
+        />
+        <add id="Magenest_Study::magenestmovie" title="Magenest Movie" module="Magenest_Study" sortOrder="20"
              action="study/magenestmovie" resource="Magenest_Study::magenestmovie"
-             parent="Magenest_Study::movie"/>
-        <add id="Magenest_Study::magenestdirector" title="Magenest Director" module="Magenest_Study" sortOrder="20"
+             parent="Magenest_Study::movie_section"/>
+        <add id="Magenest_Study::magenestdirector" title="Magenest Director" module="Magenest_Study" sortOrder="30"
              action="study/magenestdirector" resource="Magenest_Study::magenestdirector"
-             parent="Magenest_Study::movie"/>
-        <add id="Magenest_Study::magenestactor" title="Magenest Actor" module="Magenest_Study" sortOrder="30"
+             parent="Magenest_Study::movie_section"/>
+        <add id="Magenest_Study::magenestactor" title="Magenest Actor" module="Magenest_Study" sortOrder="40"
              action="study/magenestactor" resource="Magenest_Study::magenestactor"
-             parent="Magenest_Study::movie"/>
+             parent="Magenest_Study::movie_section"/>
+        <add
+                id="Magenest_Study::custom_section"
+                title="Custom Section"
+                module="Magenest_Study"
+                sortOrder="50"
+                parent="Magenest_Study::movie"
+                resource="Magenest_Study::custom_section"
+        />
+        <add id="Magenest_Study::custom" title="Custom Page" module="Magenest_Study" sortOrder="20"
+             action="study/custom" resource="Magenest_Study::custom"
+             parent="Magenest_Study::custom_section"/>
+
     </menu>
 </config>
